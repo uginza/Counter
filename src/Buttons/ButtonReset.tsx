@@ -1,9 +1,15 @@
 import React from "react";
 import {MainType} from "../App";
 
-export function ButtonReset(props:MainType){
+type ResetType ={
+    value:number
+    setCount:(value:number)=>void
+}
+
+export function ButtonReset(props:ResetType){
+
     return (   <span>
-        <button>inc</button>
+        <button onClick={() => props.setCount(0)}>reset</button>
     </span>)
 
 
