@@ -8,9 +8,11 @@ type IncType ={
 
 
 export function ButtonInc(props:IncType){
-
+function incHandler(){
+    if(props.value<5){props.setCount(props.value+1)}
+}
     return (  <span>
-        <button onClick={() => props.setCount(props.value+1)}>inc</button>
+        <button onClick={incHandler}>inc</button>
     </span>)
 
 
