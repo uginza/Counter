@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.module.css';
+import s from './App.module.css'
+import {ButtonInc} from "./Buttons/ButtonInc";
+import {ButtonReset} from "./Buttons/ButtonReset";
+import {Counter} from "./Counter/Counter";
+
+export type MainType =0|1|2|3|4|5
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div className={s.counter}>
+            <Counter/>
+            <ButtonInc/>
+            <ButtonReset/>
+        </div>
+    );
 }
 
 export default App;
