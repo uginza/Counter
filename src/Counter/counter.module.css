@@ -1,0 +1,12 @@
+.counter{
+    margin-top: 25px;
+    margin-left: 100px;
+    padding: 14px 14px;
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.56);
+    background-color: #168fbf;
+    border-radius: 10px;
+}

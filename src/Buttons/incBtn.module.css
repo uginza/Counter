@@ -1,0 +1,27 @@
+.incBtn{
+    width: 150px;
+    height: 45px;
+    margin-top:20px;
+    margin-left: 60px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(0,0,0,0.56);
+    background-color: #168fbf;
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.incBtn:active {
+    background-color: #808080;
+}
+
+.incBtn:disabled {
+    background-color: #eee;
+    border-color: #eee;
+    color: #444;
+    cursor: not-allowed;
+}

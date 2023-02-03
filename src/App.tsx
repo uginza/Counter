@@ -13,8 +13,11 @@ function App() {
     return (
         <div className={s.counter}>
             <Counter count={count}/>
-            <ButtonInc setCount={setCount} value={count}/>
-            <ButtonReset setCount={setCount} value={count}/>
+            <div className={s.buttons}>
+                <ButtonInc setCount={setCount} value={count}/>
+              <ButtonReset setCount={setCount} value={count}/>
+            </div>
+
         </div>
     );
 }

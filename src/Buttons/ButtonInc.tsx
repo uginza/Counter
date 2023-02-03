@@ -1,5 +1,5 @@
 import React from "react";
-import {MainType} from "../App";
+import s from './incBtn.module.css'
 
 type IncType ={
     value:number
@@ -12,7 +12,7 @@ function incHandler(){
     if(props.value<5){props.setCount(props.value+1)}
 }
     return (  <span>
-        <button onClick={incHandler}>inc</button>
+        <button className={s.incBtn} onClick={incHandler}>inc</button>
     </span>)
 
 
