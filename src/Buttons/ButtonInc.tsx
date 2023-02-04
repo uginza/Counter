@@ -10,9 +10,9 @@ type IncType ={
 export function ButtonInc(props:IncType){
 function incHandler(){
     if(props.value<5){props.setCount(props.value+1)}
-}
+}const incButtonClass=`${props.value<5?s.incBtn:s.incBtnDisabled}`
     return (  <span>
-        <button className={s.incBtn} onClick={incHandler}>inc</button>
+        <button className={incButtonClass} onClick={incHandler}>inc</button>
     </span>)
 
 

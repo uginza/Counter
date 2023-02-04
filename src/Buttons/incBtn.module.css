@@ -19,9 +19,22 @@
     background-color: #808080;
 }
 
-.incBtn:disabled {
+.incBtnDisabled {
     background-color: #eee;
-    border-color: #eee;
     color: #444;
     cursor: not-allowed;
+    width: 170px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 32px;
+    border: 1px solid #fff;
+    font-size: 25px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.56);
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    transition: box-shadow 0.2s;
+    border-radius: 10px;
 }
