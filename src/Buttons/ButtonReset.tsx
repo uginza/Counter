@@ -1,5 +1,4 @@
 import React from "react";
-import {MainType} from "../App";
 import s from './resetButton.module.css';
 
 type ResetType ={

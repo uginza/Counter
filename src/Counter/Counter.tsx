@@ -1,5 +1,4 @@
 import React from 'react';
-import {MainType} from "../App";
 import s from './counter.module.css'
 
 type CounterType={
@@ -7,7 +6,7 @@ type CounterType={
 }
 
 export function Counter(props:CounterType) {
-
-    return( <div className={s.counter}>{props.count}</div>)
+    const counterClass=`${props.count===5?s.counterMax:s.counter}`
+    return( <div className={counterClass}>{props.count}</div>)
 
 }

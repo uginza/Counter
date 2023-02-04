@@ -5,7 +5,6 @@ import {ButtonInc} from "./Buttons/ButtonInc";
 import {ButtonReset} from "./Buttons/ButtonReset";
 import {Counter} from "./Counter/Counter";
 
-export type MainType = 0 | 1 | 2 | 3 | 4 | 5
 
 function App() {
     const [count, setCount] = useState(0);
