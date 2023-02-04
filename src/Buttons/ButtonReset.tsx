@@ -7,7 +7,7 @@ type ResetType ={
 }
 
 export function ButtonReset(props:ResetType){
-const resetButtonClass=`${props.value<5?s.resetButtonDisabled:s.resetButton}`
+const resetButtonClass=`${props.value==0?s.resetButtonDisabled:s.resetButton}`
     return (   <span>
         <button className={resetButtonClass} onClick={() => props.setCount(0)}>reset</button>
     </span>)
