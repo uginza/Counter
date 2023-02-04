@@ -14,7 +14,7 @@ function App() {
             <Counter count={count}/>
             <div className={s.buttons}>
                 <ButtonInc setCount={setCount} value={count}/>
-              <ButtonReset setCount={setCount} value={count}/>
+                <ButtonReset setCount={setCount} value={count}/>
             </div>
 
         </div>
