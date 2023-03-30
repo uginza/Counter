@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.module.css';
 import s from './App.module.css'
 import {Button} from "./Buttons/Button";
 import {Counter} from "./Counter/Counter";
@@ -23,13 +22,17 @@ function App() {
     }
 
     return (
-        <div className={s.counter}>
-            <Counter count={count}/>
-            <div className={s.buttons}>
-                <Button onClick={incHandler} name="inc" className={incButtonClass}/>
-                <Button onClick={resetHandler} name="reset" className={resetButtonClass}/>
-            </div>
+        <div className={s.counterContainer}>
+            <div className={s.counter}>
+               <div className={s.integerContainer}>
+                   <Counter count={count}/>
+               </div>
 
+                <div className={s.buttons}>
+                    <Button onClick={incHandler} name="inc" className={incButtonClass}/>
+                    <Button onClick={resetHandler} name="reset" className={resetButtonClass}/>
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,8 +1,8 @@
 .resetButton {
-    width: 170px;
+/*    width: 170px;
     height: 45px;
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 5px;
     border: 1px solid #fff;
     border-radius: 10px;
     font-size: 25px;
@@ -14,15 +14,15 @@
     user-select: none;
     appearance: none;
     touch-action: manipulation;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;*/
 }
 
 .resetButton:active {
-    background-color: #808080;
+/*    background-color: #808080;*/
 }
 
 .resetButtonDisabled {
-    background-color: #eee;
+/*    background-color: #eee;
     color: #444;
     cursor: not-allowed;
     width: 170px;
@@ -38,7 +38,7 @@
     appearance: none;
     touch-action: manipulation;
     transition: box-shadow 0.2s;
-    border-radius: 10px;
+    border-radius: 10px;*/
 
 
 }
