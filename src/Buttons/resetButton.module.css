@@ -17,9 +17,6 @@
     transition: box-shadow 0.2s;*/
 }
 
-.resetButton:active {
-/*    background-color: #808080;*/
-}
 
 .resetButtonDisabled {
 /*    background-color: #eee;

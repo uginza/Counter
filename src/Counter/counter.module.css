@@ -1,5 +1,5 @@
 .counter{
-    margin-top: 8px;
+  /*  margin-top: 8px;
     margin-left: 25px;
     padding: 60px 150px;
     width: 60px;
@@ -8,10 +8,10 @@
     font-weight: 900;
     color: rgba(0,0,0,0.56);
     background-color: #00ffee;
-    border-radius: 10px;
+    border-radius: 10px;*/
 }
 .counterMax{
-    margin-top: 8px;
+/*    margin-top: 8px;
     margin-left: 32px;
     padding: 60px 150px;
     width: 50px;
@@ -20,5 +20,5 @@
     font-weight: 900;
     color: darkred;
     background-color: #00ffee;
-    border-radius: 10px;
+    border-radius: 10px;*/
 }
