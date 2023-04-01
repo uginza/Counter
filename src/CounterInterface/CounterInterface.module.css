@@ -15,12 +15,36 @@
     justify-content: center;
 }
 
-.integerContainer {
+.integerContainerActive {
     /*margin-bottom: 10px;*/
     width: 75%;
     height: 55%;
     border: 4px solid aqua;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.56);
+    background-color: #00ffee;
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+.integerContainerDisabled {
+    /*margin-bottom: 10px;*/
+    width: 75%;
+    height: 55%;
+    border: 4px solid aqua;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 900;
+    color: darkred;
+    background-color: #00ffee;
+    box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
 }
 
 .buttonsContainer {
