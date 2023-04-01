@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import s from './CounterInterface.module.css'
+import i from '../Buttons/Button.module.css'
 import {Button} from "../Buttons/Button";
 import {Counter} from "../Counter/Counter";
 import k from "./CounterInterface.module.css";
@@ -9,8 +10,8 @@ function CounterInterface() {
 
     const [count, setCount] = useState(0);
     const isMax = count < 5
-    const incButtonClass = `${isMax ? s.incBtn : s.incBtnDisabled}`
-    const resetButtonClass = `${count == 0 ? s.resetButtonDisabled : s.resetButton}`
+    const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
+    const resetButtonClass = `${count == 0 ? i.resetButtonDisabled : i.resetButton}`
 
     function incHandler() {
         if (isMax) {
