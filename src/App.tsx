@@ -9,8 +9,12 @@ function App() {
 
     return (
         <div className={s.counterContainer}>
-            <div className={c.SetIntervalContainer}><SetIntervalComponent/></div>
-            <div><CounterInterface/></div>
+            <div className={c.SetIntervalContainer}>
+                <SetIntervalComponent/>
+            </div>
+            <div>
+                <CounterInterface/>
+            </div>
         </div>
     )
 }
