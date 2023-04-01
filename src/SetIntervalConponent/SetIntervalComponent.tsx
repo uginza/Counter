@@ -6,7 +6,6 @@ import i from "../Buttons/Button.module.css";
 import k from "../CounterInterface/CounterInterface.module.css";
 
 
-
 function SetIntervalComponent() {
 
     const [count, setCount] = useState(0);
@@ -24,8 +23,12 @@ function SetIntervalComponent() {
 
     return (
         <>
-            <div className={s.setIntervalInterfaceContainer }>hello</div>
-            <div className={s.buttonsContainer}><Button name={"Set"} onClick={()=>{}} className={''}/></div>
+            <div className={s.setIntervalInterfaceContainer}>
+                <div className={s.maxValueContainer}>max value:<input type='number'/></div>
+                <div className={s.minValueContainer}>start value:<input type='number'/></div>
+            </div>
+            <div className={s.buttonsContainer}><Button name={"Set"} onClick={() => {
+            }} className={''}/></div>
         </>
     );
 }
