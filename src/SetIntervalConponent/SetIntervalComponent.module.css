@@ -38,6 +38,10 @@
 }
 
 .maxValueContainer {
+    color: aqua;
+    font-size: 25px;
+    font-weight: 900;
+    height:25%;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -45,10 +49,17 @@
 }
 
 .minValueContainer {
+    color: aqua;
+    font-size: 25px;
+    font-weight: 900;
+    height:25%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     border: 1px solid white;
+}
+
+.input {
 }
 
 .buttons {

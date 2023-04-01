@@ -24,8 +24,12 @@ function SetIntervalComponent() {
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>
-                <div className={s.maxValueContainer}>max value:<input type='number'/></div>
-                <div className={s.minValueContainer}>start value:<input type='number'/></div>
+                <div className={s.maxValueContainer}>
+                    max value:<div className={s.input}><input type='number'/></div>
+                </div>
+                <div className={s.minValueContainer}>
+                    start value:<div className={s.input}><input type='number'/></div>
+                </div>
             </div>
             <div className={s.buttonsContainer}><Button name={"Set"} onClick={() => {
             }} className={''}/></div>
