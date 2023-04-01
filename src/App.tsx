@@ -10,7 +10,7 @@ function App() {
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}><SetIntervalComponent/></div>
-            <div className={k.counterInterfaceContainer}><CounterInterface/></div>
+            <div><CounterInterface/></div>
         </div>
     )
 }
