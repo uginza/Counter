@@ -59,7 +59,8 @@
     border: 1px solid white;
 }
 
-.input {
+input {
+    text-align: center;
 }
 
 .buttons {
