@@ -5,8 +5,11 @@ import {Counter} from "../Counter/Counter";
 import i from "../Buttons/Button.module.css";
 import k from "../CounterInterface/CounterInterface.module.css";
 
+type SetIntervalComponentType={
+    onChange:(count:string)=>void
+}
 
-function SetIntervalComponent() {
+function SetIntervalComponent(props:SetIntervalComponentType) {
 
     const [count, setCount] = useState(0);
     const isMax = count < 5
@@ -30,6 +33,7 @@ function SetIntervalComponent() {
 const [value,setValue]=useState(minValue)
 
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+        props.onChange(e.currentTarget.value)
         setValue(e.currentTarget.value)
     }
 
@@ -40,6 +44,9 @@ const [value,setValue]=useState(minValue)
    /* const setToLocalStorageHandler=()=>{
         setValue(value)
     }*/
+    const onClickHandler=()=>{
+
+    }
 
     return (
         <>
@@ -51,7 +58,7 @@ const [value,setValue]=useState(minValue)
                     start value:<input type='number' value={value} onChange={onChangeHandler}/>
                 </div>
             </div>
-            <div className={s.buttonsContainer}><Button name={"Set"} onClick={()=>[]} className={''}/></div>
+            <div className={s.buttonsContainer}><Button name={"Set"} onClick={onClickHandler} className={''}/></div>
         </>
     );
 }
