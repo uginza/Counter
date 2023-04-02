@@ -24,6 +24,9 @@ const [value,setValue]=useState('')
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
     }
+    const setToLocalStorageHandler=()=>{
+        localStorage.setItem('minValue',value)
+    }
 
     return (
         <>
@@ -32,11 +35,10 @@ const [value,setValue]=useState('')
                     max value:<input type='number'/>
                 </div>
                 <div className={s.minValueContainer}>
-                    start value:<input type='number' onChange={onChangeHandler}/>
+                    start value:<input type='number' value={value} onChange={onChangeHandler}/>
                 </div>
             </div>
-            <div className={s.buttonsContainer}><Button name={"Set"} onClick={() => {
-            }} className={''}/></div>
+            <div className={s.buttonsContainer}><Button name={"Set"} onClick={setToLocalStorageHandler} className={''}/></div>
         </>
     );
 }
