@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, ChangeEventHandler, useState} from 'react';
 import s from './SetIntervalComponent.module.css'
 import {Button} from "../Buttons/Button";
 import {Counter} from "../Counter/Counter";
@@ -19,7 +19,11 @@ function SetIntervalComponent() {
             setCount(count + 1)
         }
     }
+const [value,setValue]=useState('')
 
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+    }
 
     return (
         <>
@@ -28,7 +32,7 @@ function SetIntervalComponent() {
                     max value:<input type='number'/>
                 </div>
                 <div className={s.minValueContainer}>
-                    start value:<input type='number'/>
+                    start value:<input type='number' onChange={onChangeHandler}/>
                 </div>
             </div>
             <div className={s.buttonsContainer}><Button name={"Set"} onClick={() => {
