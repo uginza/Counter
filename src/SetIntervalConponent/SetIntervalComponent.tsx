@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ChangeEventHandler, useState} from 'react';
+import React, {ChangeEvent, ChangeEventHandler, useEffect, useState} from 'react';
 import s from './SetIntervalComponent.module.css'
 import {Button} from "../Buttons/Button";
 import {Counter} from "../Counter/Counter";
@@ -19,14 +19,27 @@ function SetIntervalComponent() {
             setCount(count + 1)
         }
     }
-const [value,setValue]=useState('')
+    const minValue = () => {
+        let a = localStorage.getItem('minValue')
+        if (a === null) {
+            return ''
+        }else{
+            return a
+        }
+    }
+const [value,setValue]=useState(minValue)
 
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
     }
-    const setToLocalStorageHandler=()=>{
+
+    useEffect(()=>{
         localStorage.setItem('minValue',value)
-    }
+    },[value])
+
+   /* const setToLocalStorageHandler=()=>{
+        setValue(value)
+    }*/
 
     return (
         <>
@@ -38,7 +51,7 @@ const [value,setValue]=useState('')
                     start value:<input type='number' value={value} onChange={onChangeHandler}/>
                 </div>
             </div>
-            <div className={s.buttonsContainer}><Button name={"Set"} onClick={setToLocalStorageHandler} className={''}/></div>
+            <div className={s.buttonsContainer}><Button name={"Set"} onClick={()=>[]} className={''}/></div>
         </>
     );
 }

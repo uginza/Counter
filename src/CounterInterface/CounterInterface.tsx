@@ -7,7 +7,12 @@ import k from "./CounterInterface.module.css";
 
 
 function CounterInterface() {
-
+   /* const minValue = () => {
+        let a = localStorage.getItem('minValue')
+        if (a !== null) {
+            return JSON.parse(a)
+        }
+    }*/
     const [count, setCount] = useState(0);
     const isMax = count < 5
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
