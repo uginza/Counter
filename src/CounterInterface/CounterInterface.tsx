@@ -5,14 +5,20 @@ import {Button} from "../Buttons/Button";
 import {Counter} from "../Counter/Counter";
 import k from "./CounterInterface.module.css";
 
+type CounterInterfaceType={
+    minValue:string
+}
 
-function CounterInterface() {
+
+function CounterInterface(props:CounterInterfaceType) {
    /* const minValue = () => {
         let a = localStorage.getItem('minValue')
         if (a !== null) {
             return JSON.parse(a)
         }
     }*/
+    let a=Number(props.minValue)
+    console.log(a)
     const [count, setCount] = useState(0);
     const isMax = count < 5
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`

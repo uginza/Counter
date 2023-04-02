@@ -7,11 +7,12 @@ import k from "../CounterInterface/CounterInterface.module.css";
 
 type SetIntervalComponentType={
     onChange:(count:string)=>void
+    onClick:()=>void
 }
 
 function SetIntervalComponent(props:SetIntervalComponentType) {
 
-    const [count, setCount] = useState(0);
+/*    const [count, setCount] = useState(0);
     const isMax = count < 5
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count == 0 ? i.resetButtonDisabled : i.resetButton}`
@@ -21,7 +22,7 @@ function SetIntervalComponent(props:SetIntervalComponentType) {
         if (isMax) {
             setCount(count + 1)
         }
-    }
+    }*/
     const minValue = () => {
         let a = localStorage.getItem('minValue')
         if (a === null) {
@@ -37,17 +38,18 @@ const [value,setValue]=useState(minValue)
         setValue(e.currentTarget.value)
     }
 
-    useEffect(()=>{
+    const onClickHandler=()=>{
+        props.onClick()
         localStorage.setItem('minValue',value)
-    },[value])
+    }
+
+/*    useEffect(()=>{
+        localStorage.setItem('minValue',value)
+    },[value])*/
 
    /* const setToLocalStorageHandler=()=>{
         setValue(value)
     }*/
-    const onClickHandler=()=>{
-
-    }
-
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>

@@ -7,19 +7,25 @@ import c from '../src/SetIntervalConponent/SetIntervalComponent.module.css'
 
 function App() {
 
-    const [count, setCount] = useState('')
+    const [minValue, setMinValue] = useState('')
 
-    const onChangeHandler = (count:string) => {
-        setCount(count)
+    const onChangeHandler = (minValue:string) => {
+            setMinValue(minValue)
+
+
+    }
+
+    const onClickHandler=()=>{
+        localStorage.getItem('minValue')
     }
 
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
-                <SetIntervalComponent onChange={onChangeHandler}/>
+                <SetIntervalComponent onChange={onChangeHandler} onClick={onClickHandler}/>
             </div>
             <div>
-                <CounterInterface/>
+                <CounterInterface minValue={minValue}/>
             </div>
         </div>
     )
