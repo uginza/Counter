@@ -1,9 +1,6 @@
-import React, {ChangeEvent, ChangeEventHandler, useEffect, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from './SetIntervalComponent.module.css'
 import {Button} from "../Buttons/Button";
-import {Counter} from "../Counter/Counter";
-import i from "../Buttons/Button.module.css";
-import k from "../CounterInterface/CounterInterface.module.css";
 
 type SetIntervalComponentType={
     onClick:()=>void
