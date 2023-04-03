@@ -7,6 +7,7 @@ import k from "./CounterInterface.module.css";
 
 type CounterInterfaceType={
     newMinValue:number
+    newMaxValue:number
 }
 
 
@@ -23,7 +24,7 @@ function CounterInterface(props:CounterInterfaceType) {
     const isMin=props.newMinValue
     useEffect(()=>setCount(isMin),[isMin])
 
-    const isMax = count < 5
+    const isMax = count < props.newMaxValue
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count == 0 ? i.resetButtonDisabled : i.resetButton}`
     const integerClass = `${count < 5 ? s.integerContainerActive : s.integerContainerDisabled}`

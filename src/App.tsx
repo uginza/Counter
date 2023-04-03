@@ -7,12 +7,17 @@ import c from '../src/SetIntervalConponent/SetIntervalComponent.module.css'
 function App() {
 
     const [minValue, setMinValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(0)
 
 
     const onClickHandler=()=>{
         let newMinValue=localStorage.getItem('minValue')
         if(newMinValue!==null){
             setMinValue(Number(newMinValue))
+        }
+        let newMaxValue=localStorage.getItem('maxValue')
+        if(newMaxValue!==null){
+            setMaxValue(Number(newMaxValue))
         }
 
     }
@@ -23,7 +28,7 @@ function App() {
                 <SetIntervalComponent onClick={onClickHandler}/>
             </div>
             <div>
-                <CounterInterface newMinValue={minValue}/>
+                <CounterInterface newMinValue={minValue} newMaxValue={maxValue}/>
             </div>
         </div>
     )
