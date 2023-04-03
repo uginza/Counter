@@ -7,25 +7,24 @@ import c from '../src/SetIntervalConponent/SetIntervalComponent.module.css'
 
 function App() {
 
-    const [minValue, setMinValue] = useState('')
+    const [minValue, setMinValue] = useState(0)
 
-    const onChangeHandler = (minValue:string) => {
-            setMinValue(minValue)
-
-
-    }
 
     const onClickHandler=()=>{
-        localStorage.getItem('minValue')
+        let newMinValue=localStorage.getItem('minValue')
+        if(newMinValue!==null){
+            setMinValue(Number(newMinValue))
+        }
+
     }
 
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
-                <SetIntervalComponent onChange={onChangeHandler} onClick={onClickHandler}/>
+                <SetIntervalComponent onClick={onClickHandler}/>
             </div>
             <div>
-                <CounterInterface minValue={minValue}/>
+                <CounterInterface newMinValue={minValue}/>
             </div>
         </div>
     )

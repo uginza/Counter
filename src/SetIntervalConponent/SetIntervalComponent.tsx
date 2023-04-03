@@ -6,7 +6,6 @@ import i from "../Buttons/Button.module.css";
 import k from "../CounterInterface/CounterInterface.module.css";
 
 type SetIntervalComponentType={
-    onChange:(count:string)=>void
     onClick:()=>void
 }
 
@@ -34,13 +33,14 @@ function SetIntervalComponent(props:SetIntervalComponentType) {
 const [value,setValue]=useState(minValue)
 
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
-        props.onChange(e.currentTarget.value)
         setValue(e.currentTarget.value)
     }
 
+
+
     const onClickHandler=()=>{
-        props.onClick()
         localStorage.setItem('minValue',value)
+        props.onClick()
     }
 
 /*    useEffect(()=>{

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './CounterInterface.module.css'
 import i from '../Buttons/Button.module.css'
 import {Button} from "../Buttons/Button";
@@ -6,7 +6,7 @@ import {Counter} from "../Counter/Counter";
 import k from "./CounterInterface.module.css";
 
 type CounterInterfaceType={
-    minValue:string
+    newMinValue:number
 }
 
 
@@ -17,9 +17,12 @@ function CounterInterface(props:CounterInterfaceType) {
             return JSON.parse(a)
         }
     }*/
-    let a=Number(props.minValue)
-    console.log(a)
+
+
     const [count, setCount] = useState(0);
+    const isMin=props.newMinValue
+    useEffect(()=>setCount(isMin),[isMin])
+
     const isMax = count < 5
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count == 0 ? i.resetButtonDisabled : i.resetButton}`
