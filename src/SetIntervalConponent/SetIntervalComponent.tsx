@@ -8,38 +8,8 @@ type SetIntervalComponentType = {
 
 function SetIntervalComponent(props: SetIntervalComponentType) {
 
-    /*    const [count, setCount] = useState(0);
-        const isMax = count < 5
-        const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
-        const resetButtonClass = `${count == 0 ? i.resetButtonDisabled : i.resetButton}`
-        const integerClass = `${count < 5 ? s.integerContainerActive : s.integerContainerDisabled}`
-
-        function incHandler() {
-            if (isMax) {
-                setCount(count + 1)
-            }
-        }*/
-    const newMinValue = () => {
-        let a = localStorage.getItem('minValue')
-        if (a === null) {
-            return ''
-        } else {
-            return a
-        }
-    }
-
-    const newMaxValue = () => {
-        let a = localStorage.getItem('maxValue')
-        if (a === null) {
-            return ''
-        } else {
-            return a
-        }
-    }
-
-
-    const [minValue, setMinValue] = useState(newMinValue)
-    const [maxValue, setMaxValue] = useState(newMaxValue)
+    const [minValue, setMinValue] = useState('0')
+    const [maxValue, setMaxValue] = useState('5')
 
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMinValue(e.currentTarget.value)
@@ -54,24 +24,30 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
         props.onClick()
     }
 
-    /*    useEffect(()=>{
-            localStorage.setItem('minValue',minValue)
-        },[value])*/
-
-    /* const setToLocalStorageHandler=()=>{
-         setValue(value)
-     }*/
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>
                 <div className={s.maxValueContainer}>
-                    max value:<input type='number' value={maxValue} onChange={onChangeMaxValueHandler}/>
+                    max value
+                    <input type='number'
+                           value={maxValue}
+                           onChange={onChangeMaxValueHandler}
+                    />
                 </div>
                 <div className={s.minValueContainer}>
-                    start value:<input type='number' value={minValue} onChange={onChangeMinValueHandler}/>
+                    start value:
+                    <input type='number'
+                           value={minValue}
+                           onChange={onChangeMinValueHandler}
+                    />
                 </div>
             </div>
-            <div className={s.buttonsContainer}><Button name={"Set"} onClick={onClickHandler} className={''}/></div>
+            <div className={s.buttonsContainer}>
+                    <Button name={"Set"}
+                            onClick={onClickHandler}
+                            className={s.setButton}
+                    />
+            </div>
         </>
     );
 }
