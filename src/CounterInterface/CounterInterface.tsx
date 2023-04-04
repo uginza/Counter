@@ -20,7 +20,7 @@ function CounterInterface(props:CounterInterfaceType) {
     const isMax =!props.newMaxValue?count<5: count < props.newMaxValue
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count === 0 ? i.resetButtonDisabled : i.resetButton}`
-    const integerClass = `${count < props.newMaxValue || count<5 ? s.integerContainerActive : s.integerContainerDisabled}`
+    const integerClass1 = `${count < props.newMaxValue? s.integerContainerActive :s.integerContainerDisabled}`
 
     function incHandler() {
         if (isMax) {
@@ -34,7 +34,7 @@ function CounterInterface(props:CounterInterfaceType) {
 
     return (
         <div className={k.counterInterfaceContainer}>
-            <div className={integerClass}>
+            <div className={integerClass1}>
                 <Counter count={count}/>
             </div>
             <div className={s.buttonsContainer}>
