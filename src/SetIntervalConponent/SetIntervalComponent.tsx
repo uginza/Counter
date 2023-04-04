@@ -5,6 +5,7 @@ import b from '../Buttons/Button.module.css'
 
 type SetIntervalComponentType = {
     onClick: () => void
+    onChange:(e: string)=>void
 }
 
 function SetIntervalComponent(props: SetIntervalComponentType) {
@@ -14,6 +15,7 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
 
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMinValue(e.currentTarget.value)
+        props.onChange(e.currentTarget.value)
     }
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMaxValue(e.currentTarget.value)

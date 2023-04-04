@@ -9,26 +9,36 @@ function App() {
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(0)
 
+    const [onChangeMinValue, setonChangeMinValue] = useState('')
 
-    const onClickHandler=()=>{
-        let newMinValue=localStorage.getItem('minValue')
-        if(newMinValue!==null){
+
+    const onClickHandler = () => {
+        let newMinValue = localStorage.getItem('minValue')
+        if (newMinValue !== null) {
             setMinValue(Number(newMinValue))
         }
-        let newMaxValue=localStorage.getItem('maxValue')
-        if(newMaxValue!==null){
+        let newMaxValue = localStorage.getItem('maxValue')
+        if (newMaxValue !== null) {
             setMaxValue(Number(newMaxValue))
         }
 
     }
 
+    const onChangeMinValueHandler = (onChangeMinValue: string) => {
+        setonChangeMinValue(onChangeMinValue)
+    }
+
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
-                <SetIntervalComponent onClick={onClickHandler}/>
+                <SetIntervalComponent onClick={onClickHandler} onChange={onChangeMinValueHandler}/>
             </div>
             <div>
-                <CounterInterface newMinValue={minValue} newMaxValue={maxValue}/>
+                <CounterInterface
+                    newMinValue={minValue}
+                    newMaxValue={maxValue}
+                    onChangeMinValue={onChangeMinValue}
+                />
             </div>
         </div>
     )

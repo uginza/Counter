@@ -53,20 +53,8 @@
     border-radius: 10px;
 }
 
-.counter {
-    /*width: 412px;
-    height: 250px;
-    border: 4px solid aqua;
-    border-radius: 10px;
-    margin-bottom: 10px;*/
+.integerContainerTextActive {
+    font-size: 25px;
+    font-weight: 900;
+    color: aqua;
 }
-
-
-
-.buttons {
-    /* display: flex;
-     justify-content: space-evenly;
-     align-items: flex-end;*/
-
-}
-
