@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './SetIntervalComponent.module.css'
 import {Button} from "../Buttons/Button";
+import b from '../Buttons/Button.module.css'
 
 type SetIntervalComponentType = {
     onClick: () => void
@@ -24,6 +25,15 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
         props.onClick()
     }
 
+    const setButtonCondition1 = minValue === '0' && maxValue === '5'
+        ? b.setButtonDisabled : b.setButton
+    const setButtonCondition2 = minValue === localStorage.getItem('minValue')
+    && maxValue === localStorage.getItem('maxValue')
+        ? b.setButtonDisabled : b.setButton
+
+
+    const setButton = `${setButtonCondition1 && setButtonCondition2}`
+
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>
@@ -43,10 +53,10 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
                 </div>
             </div>
             <div className={s.buttonsContainer}>
-                    <Button name={"Set"}
-                            onClick={onClickHandler}
-                            className={s.setButton}
-                    />
+                <Button name={"Set"}
+                        onClick={onClickHandler}
+                        className={setButton}
+                />
             </div>
         </>
     );
