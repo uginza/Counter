@@ -53,6 +53,11 @@
     border: 1px solid white;
 }
 
-input {
+.inputActive {
     text-align: center;
+}
+
+.inputNegative{
+    text-align: center;
+    background-color: #ff0404;
 }

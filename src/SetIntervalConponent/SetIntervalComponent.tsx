@@ -30,23 +30,25 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
     const setButtonCondition2 = minValue === localStorage.getItem('minValue')
     && maxValue === localStorage.getItem('maxValue')
         ? b.setButtonDisabled : b.setButton
-
-
     const setButton = `${setButtonCondition1 && setButtonCondition2}`
 
+    const startInputClass=`${Number(minValue)>=0?s.inputActive:s.inputNegative}`
+    const maxInputClass=`${Number(maxValue)>=0?s.inputActive:s.inputNegative}`
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>
                 <div className={s.maxValueContainer}>
                     max value
-                    <input type='number'
+                    <input className={maxInputClass}
+                        type='number'
                            value={maxValue}
                            onChange={onChangeMaxValueHandler}
                     />
                 </div>
                 <div className={s.minValueContainer}>
                     start value:
-                    <input type='number'
+                    <input className={startInputClass}
+                           type='number'
                            value={minValue}
                            onChange={onChangeMinValueHandler}
                     />
