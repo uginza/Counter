@@ -12,22 +12,15 @@ type CounterInterfaceType={
 
 
 function CounterInterface(props:CounterInterfaceType) {
-   /* const minValue = () => {
-        let a = localStorage.getItem('minValue')
-        if (a !== null) {
-            return JSON.parse(a)
-        }
-    }*/
-
 
     const [count, setCount] = useState(0);
     const isMin=props.newMinValue
     useEffect(()=>setCount(isMin),[isMin])
 
-    const isMax = count < props.newMaxValue
+    const isMax =!props.newMaxValue?count<5: count < props.newMaxValue
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count === 0 ? i.resetButtonDisabled : i.resetButton}`
-    const integerClass = `${count < props.newMaxValue || count===0 ? s.integerContainerActive : s.integerContainerDisabled}`
+    const integerClass = `${count < props.newMaxValue || count<5 ? s.integerContainerActive : s.integerContainerDisabled}`
 
     function incHandler() {
         if (isMax) {
