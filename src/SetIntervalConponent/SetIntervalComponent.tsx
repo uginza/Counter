@@ -31,9 +31,9 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
     && maxValue === localStorage.getItem('maxValue')
         ? b.setButtonDisabled : b.setButton
 
-    const setButtonCondition1 = minValue === '0' && maxValue === '5'
+    const setButtonCondition1 = minValue==='0' && maxValue==='5'
         ? b.setButtonDisabled : setButtonCondition2
-    const setButtonCondition3 = Number(minValue) <= 0 || Number(maxValue) <= 0
+    const setButtonCondition3 = Number(minValue) < 0 || Number(maxValue) < 0
     || Number(minValue)===Number(maxValue)
         ?b.setButtonDisabled  : b.setButton
 
