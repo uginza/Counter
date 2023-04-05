@@ -5,24 +5,44 @@ import {Button} from "../Buttons/Button";
 import k from "./CounterInterface.module.css";
 import {Counter} from "../Counter/Counter";
 
-type CounterInterfaceType={
-    newMinValue:number
-    newMaxValue:number
-    onChangeMinValue:string
+type CounterInterfaceType = {
+    newMinValue: number
+    newMaxValue: number
+    onChangeMinValue: string
+    onChangeMaxValue: string
 }
 
 
-function CounterInterface(props:CounterInterfaceType) {
+function CounterInterface(props: CounterInterfaceType) {
 
     const [count, setCount] = useState(0);
-    const isMin=props.newMinValue
-    useEffect(()=>setCount(isMin),[isMin])
-    const isMax =!props.newMaxValue?count<5: count < props.newMaxValue
+    const [onChangeMinValue, setOnChangeMinValue] = useState('')
+    const [onChangeMaxValue, setOnChangeMaxValue] = useState('')
+    const [isMaxOnChangeValue, setisMaxOnChangeValue] = useState(0)
+
+    useEffect(() => setisMaxOnChangeValue(props.newMaxValue), [props.newMaxValue])
+    useEffect(() => setOnChangeMinValue(props.onChangeMinValue), [props.onChangeMinValue])
+    useEffect(() => setOnChangeMaxValue(props.onChangeMaxValue), [props.onChangeMaxValue])
+
+    const isMin = props.newMinValue
+    useEffect(() => setCount(isMin), [isMin])
+
+
+    const isMax = !props.newMaxValue ? count < 5 : count < props.newMaxValue
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count === 0 ? i.resetButtonDisabled : i.resetButton}`
-    const integerClass1 = `${isMax? s.integerContainerActive :s.integerContainerDisabled }`
+    const integerClass1 = `${isMax ? s.integerContainerActive : s.integerContainerDisabled}`
 
-    const integerTextClass=Number(props.onChangeMinValue)=== isMin?<Counter count={count}/>:<div className={s.integerContainerTextActive}>enter values and press 'set'</div>
+    const IntegerValueClass = () => {
+        if (isMin === Number(onChangeMinValue)&& isMaxOnChangeValue === Number(onChangeMaxValue)) {
+            return <Counter count={count}/>
+        }
+        else {
+            return <div className={s.integerContainerTextActive}>enter values and press 'set'</div>
+        }
+    }
+
+
 
     function incHandler() {
         if (isMax) {
@@ -37,7 +57,7 @@ function CounterInterface(props:CounterInterfaceType) {
     return (
         <div className={k.counterInterfaceContainer}>
             <div className={integerClass1}>
-                <div>{integerTextClass}</div>
+                <IntegerValueClass/>
             </div>
             <div className={s.buttonsContainer}>
                 <Button onClick={incHandler} name="inc" className={incButtonClass}/>

@@ -5,7 +5,8 @@ import b from '../Buttons/Button.module.css'
 
 type SetIntervalComponentType = {
     onClick: () => void
-    onChange:(e: string)=>void
+    minValueOnChange:(e: string)=>void
+    maxValueOnChange:(e: string)=>void
 }
 
 function SetIntervalComponent(props: SetIntervalComponentType) {
@@ -15,10 +16,11 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
 
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMinValue(e.currentTarget.value)
-        props.onChange(e.currentTarget.value)
+        props.minValueOnChange(e.currentTarget.value)
     }
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMaxValue(e.currentTarget.value)
+        props.maxValueOnChange(e.currentTarget.value)
     }
     const onClickHandler = () => {
         localStorage.setItem('minValue', minValue)

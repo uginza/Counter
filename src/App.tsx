@@ -10,6 +10,7 @@ function App() {
     const [maxValue, setMaxValue] = useState(0)
 
     const [onChangeMinValue, setonChangeMinValue] = useState('')
+    const [onChangeMaxValue, setonChangeMaxValue] = useState('')
 
 
     const onClickHandler = () => {
@@ -27,17 +28,23 @@ function App() {
     const onChangeMinValueHandler = (onChangeMinValue: string) => {
         setonChangeMinValue(onChangeMinValue)
     }
-
+    const onChangeMaxValueHandler = (onChangeMaxValue: string) => {
+        setonChangeMaxValue(onChangeMaxValue)
+    }
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
-                <SetIntervalComponent onClick={onClickHandler} onChange={onChangeMinValueHandler}/>
+                <SetIntervalComponent
+                    onClick={onClickHandler}
+                    minValueOnChange={onChangeMinValueHandler}
+                    maxValueOnChange={onChangeMaxValueHandler}/>
             </div>
             <div>
                 <CounterInterface
                     newMinValue={minValue}
                     newMaxValue={maxValue}
                     onChangeMinValue={onChangeMinValue}
+                    onChangeMaxValue={onChangeMaxValue}
                 />
             </div>
         </div>
