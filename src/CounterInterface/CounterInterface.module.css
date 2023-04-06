@@ -58,3 +58,8 @@
     font-weight: 900;
     color: aqua;
 }
+.integerContainerTextNegative {
+    font-size: 25px;
+    font-weight: 900;
+    color: #ff001e;
+}

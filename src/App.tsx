@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CounterInterface from "./CounterInterface/CounterInterface";
 import SetIntervalComponent from "./SetIntervalConponent/SetIntervalComponent";
 import s from './App.module.css'
@@ -9,8 +9,9 @@ function App() {
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(0)
 
-    const [isValueChanged,setIsValueChanged]=useState(false)
+    const [isValueNegative, setIsValueNegative] = useState(false)
 
+    const [isValueChanged, setIsValueChanged] = useState(false)
 
     const onClickHandler = () => {
         let newMinValue = localStorage.getItem('minValue')
@@ -24,19 +25,39 @@ function App() {
         setIsValueChanged(false)
     }
 
+    const minValueOnChangeHandler = () => {
+        setIsValueChanged(true)
+    }
+    const maxValueOnChangeHandler = () => {
+        setIsValueChanged(true)
+    }
+
+const isValueNegativeHandler1=()=>{
+    setIsValueNegative(true)
+}
+const isValueNegativeHandler2=()=>{
+    setIsValueNegative(false)
+}
+
+    console.log(isValueNegative)
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
                 <SetIntervalComponent
                     onClick={onClickHandler}
-                    minValueOnChange={()=>setIsValueChanged(true)}
-                    maxValueOnChange={()=>setIsValueChanged(true)}/>
+                    minValueOnChange={minValueOnChangeHandler}
+                    maxValueOnChange={maxValueOnChangeHandler}
+                    isValueNegative1={isValueNegativeHandler1}
+                    isValueNegative2={isValueNegativeHandler2}
+
+                />
             </div>
             <div>
                 <CounterInterface
                     newMinValue={minValue}
                     newMaxValue={maxValue}
                     isValueChanged={isValueChanged}
+                    isValueNegative={isValueNegative}
                 />
             </div>
         </div>
