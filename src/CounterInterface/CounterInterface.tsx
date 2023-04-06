@@ -8,7 +8,7 @@ import {Counter} from "../Counter/Counter";
 type CounterInterfaceType = {
     newMinValue: number
     newMaxValue: number
-    isValueChanged:boolean
+    isValueChanged: boolean
 }
 
 function CounterInterface(props: CounterInterfaceType) {
@@ -23,7 +23,9 @@ function CounterInterface(props: CounterInterfaceType) {
     const incButtonClass = `${isMax ? i.incBtn : i.incBtnDisabled}`
     const resetButtonClass = `${count === 0 ? i.resetButtonDisabled : i.resetButton}`
     const integerClass1 = `${isMax ? s.integerContainerActive : s.integerContainerDisabled}`
-
+    const counterInterfaceClass = props.isValueChanged ?
+        <div className={s.integerContainerTextActive}>enter values and press 'set'</div> :
+        <Counter count={count}/>
 
     function incHandler() {
         if (isMax) {
@@ -38,8 +40,7 @@ function CounterInterface(props: CounterInterfaceType) {
     return (
         <div className={k.counterInterfaceContainer}>
             <div className={integerClass1}>
-                {props.isValueChanged ?<div className={s.integerContainerTextActive}>enter values and press 'set'</div>:
-                <Counter count={count}/>}
+                {counterInterfaceClass}
             </div>
             <div className={s.buttonsContainer}>
                 <Button onClick={incHandler} name="inc" className={incButtonClass}/>

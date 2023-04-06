@@ -34,15 +34,15 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
     const setButtonCondition1 = minValue==='0' && maxValue==='5'
         ? b.setButtonDisabled : setButtonCondition2
     const setButtonCondition3 = Number(minValue) < 0 || Number(maxValue) < 0
-    || Number(minValue)===Number(maxValue)
+    || Number(minValue)===Number(maxValue) || Number(minValue)>Number(maxValue)
         ?b.setButtonDisabled  : b.setButton
 
-    const setButton = `${setButtonCondition1 || setButtonCondition3}`
+    const setButton = `${setButtonCondition1 && setButtonCondition3}`
 
     const startInputClass = `${Number(minValue) >= 0 
-    && Number(minValue)!==Number(maxValue)? s.inputActive : s.inputNegative}`
+    && Number(minValue)<Number(maxValue)? s.inputActive : s.inputNegative}`
     const maxInputClass = `${Number(maxValue) >= 0 
-    && Number(minValue)!==Number(maxValue)? s.inputActive : s.inputNegative}`
+    && Number(minValue)<Number(maxValue)? s.inputActive : s.inputNegative}`
     return (
         <>
             <div className={s.setIntervalInterfaceContainer}>
