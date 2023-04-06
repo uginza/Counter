@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import CounterInterface from "./CounterInterface/CounterInterface";
 import SetIntervalComponent from "./SetIntervalConponent/SetIntervalComponent";
 import s from './App.module.css'
@@ -32,12 +32,12 @@ function App() {
         setIsValueChanged(true)
     }
 
-const isValueNegativeHandler1=()=>{
-    setIsValueNegative(true)
-}
-const isValueNegativeHandler2=()=>{
-    setIsValueNegative(false)
-}
+    const isValueNegativeHandler1 =()=>{
+        setIsValueNegative(true)
+    }
+    const isValueNegativeHandler2 = ()=>{
+        setIsValueNegative(false)
+    }
 
     console.log(isValueNegative)
     return (

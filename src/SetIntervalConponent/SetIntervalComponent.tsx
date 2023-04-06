@@ -16,17 +16,27 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
     const [minValue, setMinValue] = useState('0')
     const [maxValue, setMaxValue] = useState('5')
 
-  const isValueNegative = Number(minValue) < 0 || Number(maxValue) < 0
-        || Number(minValue) === Number(maxValue) || Number(minValue) > Number(maxValue)
-    isValueNegative?props.isValueNegative1():props.isValueNegative2()
+    const isValueNegative = Number(minValue) < 0 || Number(maxValue) < 0
+        || Number(minValue) === Number(maxValue) || Number(minValue) > Number(maxValue);
+
+   useEffect(() => {
+        if (isValueNegative) {
+            props.isValueNegative1()
+        } else {
+            props.isValueNegative2()
+        }
+   },[minValue,maxValue])
+
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMinValue(e.currentTarget.value)
         props.minValueOnChange()
     }
+
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMaxValue(e.currentTarget.value)
         props.maxValueOnChange()
     }
+
     const onClickHandler = () => {
         localStorage.setItem('minValue', minValue)
         localStorage.setItem('maxValue', maxValue)
