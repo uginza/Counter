@@ -7,8 +7,7 @@ type SetIntervalComponentType = {
     onClick: () => void
     minValueOnChange: () => void
     maxValueOnChange: () => void
-    isValueNegative1:()=>void
-    isValueNegative2:()=>void
+    validate:(value:boolean)=>void
 }
 
 function SetIntervalComponent(props: SetIntervalComponentType) {
@@ -16,16 +15,15 @@ function SetIntervalComponent(props: SetIntervalComponentType) {
     const [minValue, setMinValue] = useState('0')
     const [maxValue, setMaxValue] = useState('5')
 
-    const isValueNegative = Number(minValue) < 0 || Number(maxValue) < 0
-        || Number(minValue) === Number(maxValue) || Number(minValue) > Number(maxValue);
-
-   useEffect(() => {
-        if (isValueNegative) {
-            props.isValueNegative1()
+    useEffect(() => {
+        const isValid = Number(minValue) < 0 || Number(maxValue) < 0
+            || Number(minValue) === Number(maxValue) || Number(minValue) > Number(maxValue);
+        if (isValid) {
+            props.validate(true)
         } else {
-            props.isValueNegative2()
+            props.validate(false)
         }
-   },[minValue,maxValue])
+    }, [minValue, maxValue])
 
     const onChangeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setMinValue(e.currentTarget.value)

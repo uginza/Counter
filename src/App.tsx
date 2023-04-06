@@ -9,7 +9,7 @@ function App() {
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(0)
 
-    const [isValueNegative, setIsValueNegative] = useState(false)
+    const [isValid, validate] = useState(false)
 
     const [isValueChanged, setIsValueChanged] = useState(false)
 
@@ -32,14 +32,7 @@ function App() {
         setIsValueChanged(true)
     }
 
-    const isValueNegativeHandler1 =()=>{
-        setIsValueNegative(true)
-    }
-    const isValueNegativeHandler2 = ()=>{
-        setIsValueNegative(false)
-    }
 
-    console.log(isValueNegative)
     return (
         <div className={s.counterContainer}>
             <div className={c.SetIntervalContainer}>
@@ -47,8 +40,7 @@ function App() {
                     onClick={onClickHandler}
                     minValueOnChange={minValueOnChangeHandler}
                     maxValueOnChange={maxValueOnChangeHandler}
-                    isValueNegative1={isValueNegativeHandler1}
-                    isValueNegative2={isValueNegativeHandler2}
+                    validate={validate}
 
                 />
             </div>
@@ -57,7 +49,7 @@ function App() {
                     newMinValue={minValue}
                     newMaxValue={maxValue}
                     isValueChanged={isValueChanged}
-                    isValueNegative={isValueNegative}
+                    isValueNegative={isValid}
                 />
             </div>
         </div>
